@@ -18,7 +18,7 @@
 
 
   try {
-   
+
     /* El código está comprobando si el formulario ha sido enviado o no. Si el formulario no ha sido
   enviado, recupera los valores de los parámetros de la URL () y los asigna a las variables
   (id,nombre,apellido ,direccion ). Si el formulario ha sido enviado, recupera los valores de los
@@ -42,13 +42,19 @@
       $apellido = $_POST["apellido"];
       $direccion = $_POST["direccion"];
 
-      //$registro = $conexion_pdo->query(("UPDATE datos_usuarios SET Nombre=:miNombre,Apellido=:miApellido,Direccion=:miDireccion WHERE id=:miId"));
-      // $resultado = $conexion_pdo->prepare($registro);
+      /* El código está realizando una operación de actualización sobre una tabla de la base de datos  llamada "datos_usuarios". 
+      Está actualizando los valores de las columnas "Nombre", "Apellido"  y "Dirección" en función del valor "id" proporcionado. */
       $sql = "UPDATE datos_usuarios SET Nombre=:miNombre,Apellido=:miApellido,Direccion=:miDireccion WHERE id=:miId";
+
+      /* ` = ->prepare()` está preparando una sentencia SQL para su
+      ejecución. Está creando un objeto de declaración preparada `` a partir del objeto de
+      conexión PDO `` y la consulta SQL ``. Esta declaración preparada se puede
+      ejecutar con el método `execute()`, pasando los parámetros necesarios. */
       $resultado = $conexion_pdo->prepare($sql);
+      
+      /* La línea `->execute(array(":myId=", ":myName=", ":myLastName=",
+      ":myAddress="));` está ejecutando un declaración con los parámetros proporcionados. */
       $resultado->execute(array(":miId=$id", ":miNombre=$nombre", ":miApellido=$apellido", ":miDireccion=$direccion"));
-      // $conexion_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      //$conexion_pdo->exec("SET CHARACTER SET utf8");
     }
   } catch (Throwable $e) {
     /* El bloque `catch (Throwable )` se usa para capturar cualquier excepción o error que pueda

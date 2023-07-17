@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="linkToCSS" />
     <style>
         body {
-            background-color: #ffc;
+            background-color: #ffc;   
         }
 
         .c {
