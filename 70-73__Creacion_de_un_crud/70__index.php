@@ -71,7 +71,7 @@ El resultado de la consulta se almacena en la variable ``. */
         <td class='bot'><a href="70__borrar.php?id=<?php echo $item->id ?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
 
 
-        <td class='bot'><a href="70__editar.php?Nombre=<?php echo $item->Nombre ?>&Apellido=<?php echo $item->Apellido ?>&Direccion=<?php echo $item->Direccion ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
+        <td class='bot'><a href="70__editar.php?id=<?php echo $item->id ?>&nombre=<?php echo $item->Nombre ?>&apellido=<?php echo $item->Apellido ?>&direccion=<?php echo $item->Direccion ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
 
       </tr>
     <?php endforeach ?>
