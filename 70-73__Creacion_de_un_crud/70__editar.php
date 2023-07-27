@@ -14,34 +14,37 @@
 
   <?php
 
-
-
-  try {
-
-    /* El código está comprobando si el formulario ha sido enviado o no. Si el formulario no ha sido
-  enviado, recupera los valores de los parámetros de la URL () y los asigna a las variables
-  (id,nombre,apellido ,direccion ). Si el formulario ha sido enviado, recupera los valores de los
-  campos del formulario () y los asigna a las variables (id,nombre,apellido ,direccion ) */
-    include("70__conexionCRUD.php");
-
-
-    if (!isset($_POST["bot_actualizar"])) {
-      echo "29_ DENTRO DEL IF CON GET ";
-      /* El bloque de código dentro de la instrucción `else` se ejecuta cuando se envía el formulario.
+  /* La línea `if (!isset(["bot_actualizar"]))` comprueba si el formulario se ha enviado o no.
+ Comprueba si el campo "bot_actualizar" en la matriz  está configurado o no. Si no está
+ configurado, significa que el formulario no se ha enviado y se ejecutará el código dentro del
+ bloque if. Si está configurado, significa que el formulario se ha enviado y se ejecutará el código
+ dentro del bloque else. */
+  if (!isset($_POST["bot_actualizar"])) {
+    echo "18_ DENTRO DEL IF CON GET ";
+    /* El bloque de código dentro de la instrucción `else` se ejecuta cuando se envía el formulario.
     Recupera los valores de los campos del formulario con los nombres "id", "Nombre", "Apellido" y
     "Dirección" usando el arreglo superglobal `$_POST["..."]` y los asigna a las variables
     correspondientes (id,nombre,apellido ,direccion ). Estos valores se utilizarán para
     actualizar el registro de la base de datos. */
-      $id = $_GET["id"];
-      $nombre = $_GET["nombre"];
-      $apellido = $_GET["apellido"];
-      $direccion = $_GET["direccion"];
-    } else {
-      echo "40_ FUERA DEL IF CON POST ";
+    $id = $_GET["id"];
+    $nombre = $_GET["nombre"];
+    $apellido = $_GET["apellido"];
+    $direccion = $_GET["direccion"];
+  } else {
+
+    try {
       $id = $_POST["id"];
       $nombre = $_POST["nombre"];
       $apellido = $_POST["apellido"];
       $direccion = $_POST["direccion"];
+
+      /* El código está comprobando si el formulario ha sido enviado o no. Si el formulario no ha sido
+  enviado, recupera los valores de los parámetros de la URL () y los asigna a las variables
+  (id,nombre,apellido ,direccion ). Si el formulario ha sido enviado, recupera los valores de los
+  campos del formulario () y los asigna a las variables (id,nombre,apellido ,direccion ) */
+      include("70__conexionCRUD.php");
+
+
 
       /* El código está realizando una operación de actualización sobre una tabla de la base de datos  llamada "datos_usuarios". 
       Está actualizando los valores de las columnas "Nombre", "Apellido"  y "Dirección" en función del valor "id" proporcionado. */
@@ -57,18 +60,20 @@
       ":myAddress="));` está ejecutando un declaración con los parámetros proporcionados. */
       $resultado->execute(array(":miId" => $id, ":miNombre" => $nombre,   ":miApellido" => $apellido, ":miDireccion" => $direccion));
       header("Location:70__index.php");
-    }
-  } catch (Throwable $e) {
-    /* El bloque `catch (Throwable )` se usa para capturar cualquier excepción o error que pueda
+    } catch (Throwable $e) {
+      /* El bloque `catch (Throwable )` se usa para capturar cualquier excepción o error que pueda
   ocurrir'durante la ejecución del código dentro del bloque `try`. */
-    echo '_______________ ERROR: catch  (Throwable $e) _______________' . "<br />";
-    echo "El codigo de execpción es: " . $e->getMessage() . "<br />";
-    echo "El codigo de execpción es: " . $e->getMessage() . "<br />";
-    echo "EL archivo es: " . $e->getFile() . "<br />";
-    echo "EL codigo del ERROR es: " . $e->getCode() . "<br />";
-    echo 'LINEA DEL ERROR: ==> : ' . $e->getLine() . "<br />";
-    echo '______________________________________________________________' . "<br />";
+      echo '_______________ ERROR: catch  (Throwable $e) _______________' . "<br />";
+      echo "El codigo de execpción es: " . $e->getMessage() . "<br />";
+      echo "El codigo de execpción es: " . $e->getMessage() . "<br />";
+      echo "EL archivo es: " . $e->getFile() . "<br />";
+      echo "EL codigo del ERROR es: " . $e->getCode() . "<br />";
+      echo 'LINEA DEL ERROR: ==> : ' . $e->getLine() . "<br />";
+      echo '______________________________________________________________' . "<br />";
+    }
   }
+
+
   ?>
 
   <form name="form1" method="post" border="0" action="<?php echo $_SERVER['PHP_SELF']; ?>">
