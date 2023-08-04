@@ -59,7 +59,7 @@
       /* La línea `->execute(array(":myId=", ":myName=", ":myLastName=",
       ":myAddress="));` está ejecutando un declaración con los parámetros proporcionados. */
       $resultado->execute(array(":miId" => $id, ":miNombre" => $nombre,   ":miApellido" => $apellido, ":miDireccion" => $direccion));
-      header("Location:70__index.php");
+      header("Location:70_73_index.php");
     } catch (Throwable $e) {
       /* El bloque `catch (Throwable )` se usa para capturar cualquier excepción o error que pueda
   ocurrir'durante la ejecución del código dentro del bloque `try`. */

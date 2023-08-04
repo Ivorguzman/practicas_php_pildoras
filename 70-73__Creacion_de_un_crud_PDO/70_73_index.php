@@ -35,7 +35,7 @@ El resultado de la consulta se almacena en la variable ``. */
   print_r($registro);
   print "<pre>";
   // ===FIN COMPROBACIONES
-
+ 
 
   if (isset($_POST["insertar"])) {
 
