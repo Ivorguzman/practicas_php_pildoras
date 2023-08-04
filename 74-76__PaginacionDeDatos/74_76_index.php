@@ -151,6 +151,12 @@
       echo "<br>";
       //|____________PAGINACIÓN_____________| "
 
+/* <html>El código está creando un sistema de paginación para los resultados de la consulta. Utiliza un
+bucle for para generar una serie de enlaces, cada uno de los cuales representa un número de página.
+Los enlaces se crean utilizando la etiqueta de anclaje HTML ` <a>`, y el atributo `href` está
+configurado para incluir el número de página como parámetro de consulta (`?pagina=`). Esto permite
+al usuario navegar a diferentes páginas de los resultados haciendo clic en el enlace
+correspondiente. Los números de página se muestran como los valores de la variable $i del bucle; Cada enlace está separado por un espacio.</a> */
       for ($i = 1; $i < $totalPaginas; $i++) {
          echo "<a href='?pagina=" . $i . "'>|$i|</a>  ";
       }
