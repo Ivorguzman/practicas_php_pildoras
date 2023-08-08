@@ -20,7 +20,7 @@
  bloque if. Si está configurado, significa que el formulario se ha enviado y se ejecutará el código
  dentro del bloque else. */
   if (!isset($_POST["bot_actualizar"])) {
-    echo "18_ DENTRO DEL IF CON GET ";
+    echo "23_ DENTRO DEL IF CON GET ";
     /* El bloque de código dentro de la instrucción `else` se ejecuta cuando se envía el formulario.
     Recupera los valores de los campos del formulario con los nombres "id", "Nombre", "Apellido" y
     "Dirección" usando el arreglo superglobal `$_POST["..."]` y los asigna a las variables
@@ -42,7 +42,7 @@
   enviado, recupera los valores de los parámetros de la URL () y los asigna a las variables
   (id,nombre,apellido ,direccion ). Si el formulario ha sido enviado, recupera los valores de los
   campos del formulario () y los asigna a las variables (id,nombre,apellido ,direccion ) */
-      include("70__conexionCRUD.php");
+      include("77__conexionCRUD.php");
 
 
 
@@ -59,7 +59,7 @@
       /* La línea `->execute(array(":myId=", ":myName=", ":myLastName=",
       ":myAddress="));` está ejecutando un declaración con los parámetros proporcionados. */
       $resultado->execute(array(":miId" => $id, ":miNombre" => $nombre,   ":miApellido" => $apellido, ":miDireccion" => $direccion));
-      header("Location:70_73_index.php");
+      header("Location:77__index.php");
     } catch (Throwable $e) {
       /* El bloque `catch (Throwable )` se usa para capturar cualquier excepción o error que pueda
   ocurrir'durante la ejecución del código dentro del bloque `try`. */

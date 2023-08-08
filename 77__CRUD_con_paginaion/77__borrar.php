@@ -1,13 +1,13 @@
 <?php
 
-include("70__conexionCRUD.php");
+include("77__conexionCRUD.php");
 
 $id = $_GET["id"];
 
 
 try {
    $conexion_pdo->query(("DELETE FROM datos_usuarios WHERE id=$id"));
-   header("Location:70_73_index.php");
+   header("Location:77__index.php");
 } catch (\Throwable $e) {
    echo "______ ERROR________" . "<br />";
    echo "El codigo de execpción es: " . $e->getMessage() . "<br />";

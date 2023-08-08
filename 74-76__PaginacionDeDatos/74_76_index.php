@@ -20,33 +20,24 @@
       "74-76_conexion.php". */
       include("74-76_conexion.php");
 
-      /* La línea ` = new PDO(, , );` está creando un nuevo objeto
-      PDO y estableciendo una conexión con la base de datos. La variable ` $conexion_pdo ` contiene el DNS o
-      DSN (Nombre de la fuente de datos) de la base de datos, que especifica el controlador de la
-      base de datos, el host y el nombre de la base de datos. Las variables ` $usuario` y ` $password`
-      contienen el nombre de usuario y la contraseña para la conexión a la base de datos. La función
-      `nuevo PDO()` crea una nueva instancia de la clase PDO, que es una extensión de PHP para
-      interactuar con bases de datos. El objeto  resultante se puede usar para ejecutar
-       consultas SQL y realizar otras operaciones de base de datos. */
-      $conexion_pdo = new PDO($dns, $usuario, $password);
-      echo "_21 Conexion establecida con BASE DE DATOS (21 index.php) " . "<br>";
-
-      /* La línea `->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);` establece el
-        modo de error para la conexión PDO. */
-      $conexion_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      /* La línea `->exec("SET CHARACTER SET utf8");` está configurando el conjunto de   caracteres de la conexión de la base de datos a UTF-8. Esto asegura que la conexión pueda manejar   y almacenar caracteres de diferentes idiomas y conjuntos de caracteres correctamente. UTF-8 es   una codificación de caracteres ampliamente utilizada que admite una amplia gama de caracteres de   varios idiomas. */
-      $conexion_pdo->exec("SET CHARACTER SET utf8");
-
+  
       /* Este código verifica si el parámetro "página" está configurado en la URL. Si está configurado, 
         comprueba si el valor del parámetro "pagina" es igual a 1. Si es igual a 1, 
         redirige al usuario a   la página "74_76_index.php". Si el valor del parámetro "pagina"
          no es igual a 1, asigna el valor   del parámetro "pagina" a la variable . */
       if (isset($_GET["pagina"])) {
 
+         /* El código `if (['pagina'] == 1) { header("Ubicación:74_76_index.php"); }` está
+          comprobando siel valor del parámetro "pagina" en la URL es igual a 1. Si lo es, 
+          redirige al usuario a la página"74_76_index.php". Este código se utiliza para
+           manejar un caso específico en el que el usuario desea volver a la primera página de resultados. */
          if ($_GET['pagina'] == 1) {
             header("Location:74_76_index.php");
          } else {
+            /* El código `else {  = ["pagina"]; }` está comprobando si el parámetro "pagina"
+         está configurado en la URL. Si está configurado, asigna el valor del parámetro "pagina" a
+         la variable ` $pagina `. Esto permite que el código determine qué página de resultados
+         mostrar en función del valor del parámetro "página" en la URL. */
             $pagina = $_GET["pagina"];
 
             // ===COMPROBACIONES===
@@ -57,6 +48,9 @@
 
          }
       } else {
+         /* El código `else {  = 1; }` establece el valor de la variable `$pagina` en 1 si el
+      parámetro "pagina" no está configurado en la URL. Esto significa que si el parámetro "pagina"
+      no está presente en la URL, se usará el valor predeterminado de 1 para la variable ` $pagina = 1`. */
          $pagina = 1;
          // ===COMPROBACIONES===
          print "<pre>\n";
@@ -106,9 +100,9 @@
       echo "<br />";
       //echo '46__ $registro == ';
       // print_r("$registro == $.conexion_pdo->query("SELECT * FROM productos")->fetchAll(PDO::FETCH_OBJ));
-      print_r("Numero de fila (Registros) en la consulta = " . $numeroFila . "<br>");
-      print_r("Numero de fila (Registros) por pagina = " . $tamhnoPagina . "<br>");
-      print_r("Numero de Paginas en la consulta = "  .  $pagina . " de" . " $totalPaginas" . "<br>");
+      print_r("Numero de filas (Registros) en la consulta = " . $numeroFila . "<br>");
+      print_r("Numero paginas = " . $tamhnoPagina . "<br>");
+      print_r("Pagina  "  .  $pagina . " de" . " $totalPaginas" . "<br>");
       print_r("Empezar Desde = " . $empezarDesDe);
       print_r(" Hasta = " . $tamhnoPagina . "<br>");
       print "<pre>";
@@ -151,7 +145,7 @@
       echo "<br>";
       //|____________PAGINACIÓN_____________| "
 
-/* <html>El código está creando un sistema de paginación para los resultados de la consulta. Utiliza un
+      /* <html>El código está creando un sistema de paginación para los resultados de la consulta. Utiliza un
 bucle for para generar una serie de enlaces, cada uno de los cuales representa un número de página.
 Los enlaces se crean utilizando la etiqueta de anclaje HTML ` <a>`, y el atributo `href` está
 configurado para incluir el número de página como parámetro de consulta (`?pagina=`). Esto permite
