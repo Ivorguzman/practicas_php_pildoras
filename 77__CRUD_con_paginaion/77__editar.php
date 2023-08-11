@@ -5,15 +5,10 @@
   <meta charset="utf-8">
   <title>Documento sin título</title>
   <link rel="stylesheet" type="text/css" href="hoja.css">
-
 </head>
-
 <body>
-
   <h1>ACTUALIZAR</h1>
-
   <?php
-
   /* La línea `if (!isset(["bot_actualizar"]))` comprueba si el formulario se ha enviado o no.
  Comprueba si el campo "bot_actualizar" en la matriz  está configurado o no. Si no está
  configurado, significa que el formulario no se ha enviado y se ejecutará el código dentro del
@@ -72,10 +67,7 @@
       echo '______________________________________________________________' . "<br />";
     }
   }
-
-
   ?>
-
   <form name="form1" method="post" border="0" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <table width="25%" border="0" align="center">
       <tr>
@@ -109,7 +101,5 @@
     </table>
   </form>
   <p>&nbsp;</p>
-
 </body>
-
 </html>

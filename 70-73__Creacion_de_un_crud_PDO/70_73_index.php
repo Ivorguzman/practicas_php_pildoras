@@ -26,7 +26,9 @@ todas las filas restantes en el conjunto de resultados. La matriz representa cad
 de valores de columna o un objeto con propiedades correspondiente a cada nombre de columna.
 Se devuelve una matriz vacía si no hay resultados para recuperar o falso en caso de falla.a..
 El resultado de la consulta se almacena en la variable ``. */
-  $registro = $conexion_pdo->query("SELECT * FROM datos_usuarios")->fetchAll(PDO::FETCH_OBJ);
+
+$registro = $conexion_pdo->query("SELECT * FROM datos_usuarios")->fetchAll(PDO::FETCH_OBJ);
+
   // ===COMPROBACIONES===
   print "<pre>\n";
   echo "<br />";
@@ -35,7 +37,7 @@ El resultado de la consulta se almacena en la variable ``. */
   print_r($registro);
   print "<pre>";
   // ===FIN COMPROBACIONES
- 
+
 
   if (isset($_POST["insertar"])) {
 
@@ -58,7 +60,7 @@ El resultado de la consulta se almacena en la variable ``. */
       datos en la tabla "user_data". Especifica las columnas (Nombre, Apellido, Dirección) y los
       valores correspondientes (:miNombre, :miApellido, :miDirección) a insertar. Los valores son
       marcadores de posición que se reemplazarán con valores reales cuando se ejecute la consulta. */
-      $sql = "INSERT INTO  datos_usuarios (Nombre, Apellido ,Direccion) VALUES (:miNombre, :miApellido,:miDireccion)";     
+      $sql = "INSERT INTO  datos_usuarios (Nombre, Apellido ,Direccion) VALUES (:miNombre, :miApellido,:miDireccion)";
 
       /* ` = ->prepare()` está preparando una sentencia SQL para su
       ejecución. Está creando un objeto de declaración preparada `` a partir del objeto de
