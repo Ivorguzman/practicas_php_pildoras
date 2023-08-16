@@ -35,7 +35,7 @@ class Coche
 
     /// Los constructores son métodos ordinarios que se llaman durante la instanciación de su objeto
 
-    //? Antes de PHP 8.0.0,Las funciones constructoreseran creados dandole el mismo nombre que la clase (onstructor de estilo antiguo). Esa sintaxis está en desuso y dará como resultado un E_DEPRECATEDerror, pero seguirá llamando a esa función como un constructor.
+    //? Antes de PHP 8.0.0,Las funciones constructoreseran creados dandole el mismo nombre que la clase (constructor de estilo antiguo). Esa sintaxis está en desuso y dará como resultado un E_DEPRECATEDerror, pero seguirá llamando a esa función como un constructor.
 
     function __construct()
     //  Metodo constructor
