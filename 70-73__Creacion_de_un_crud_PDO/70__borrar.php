@@ -1,6 +1,6 @@
 <?php
 
-include("70__conexionCRUD.php");
+include_once("70__conexionCRUD.php");
 
 $id = $_GET["id"];
 

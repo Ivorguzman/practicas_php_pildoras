@@ -15,7 +15,7 @@
 
 
   <?php
-  include("70__conexionCRUD.php");
+  include_once("70__conexionCRUD.php");
   /*
    La línea de código ` = ->query("SELECT * FROM
 datos_usuarios")->fetchAll(PDO::FETCH_OBJ);` está ejecutando una consulta SQL para seleccionar todos

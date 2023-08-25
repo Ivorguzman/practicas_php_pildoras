@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-
+ 
 <head>
     <meta charset="utf-8" />
     <title>Consultar articulo</title>
     <link rel="stylesheet" href="linkToCSS" />
 </head>
-
+ 
 <body>
     <form method='get' action='53__PDO_Consultas_preparadas._Vídeo_53.php' align="center">
         <fieldset>

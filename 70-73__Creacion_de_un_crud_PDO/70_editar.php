@@ -42,7 +42,7 @@
   enviado, recupera los valores de los parámetros de la URL () y los asigna a las variables
   (id,nombre,apellido ,direccion ). Si el formulario ha sido enviado, recupera los valores de los
   campos del formulario () y los asigna a las variables (id,nombre,apellido ,direccion ) */
-         include("70__conexionCRUD.php");
+         include_once("70__conexionCRUD.php");
 
 
 

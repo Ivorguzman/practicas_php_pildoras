@@ -53,20 +53,19 @@ $busqueda = $_GET["buscar"];
 //! Amacenando  ejecucuón de consulta metodo con el uso de [= ?]
 
 
- /* Este código está estableciendo una conexión a una base de datos MySQL usando PDO en PHP y
+/* Este código está estableciendo una conexión a una base de datos MySQL usando PDO en PHP y
 ejecutando una consulta para recuperar datos de una tabla llamada "productos". La consulta
 utiliza una declaración parametrizada con un marcador de posición "?" para prevenir ataques de
 inyección SQL. El valor del parámetro se obtiene de la cadena de consulta de la URL utilizando
 el superglobal . Los datos recuperados se muestran en una tabla HTML. El código también
 incluye el manejo de errores y una función para cerrar la conexión y la declaración de la base
 de datos. */
-try
-{
+try {
     $conexion_pdo = new PDO($dsn, $usuario, $contraseña); // Almacenando creación de  conexion objeto tipo conecxion
     echo ('conexion establecida' . "<br />");
     // ojo estudiar esta linea
-    
-   /* `->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);` está configurando el
+
+    /* `->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);` está configurando el
    atributo de modo de error del objeto PDO en `PDO::ERRMODE_EXCEPTION`. Esto significa que PDO
    lanzará excepciones cuando ocurran errores, en lugar de simplemente devolver falso o una
    advertencia. Esto permite un manejo de errores más eficaz en el código. */
@@ -85,33 +84,40 @@ try
     print_r($conexion_pdo);
     print_r($obj_pdo_stmt);
     // print_r($registro = $obj_pdo_stmt->fetch(PDO::FETCH_BOTH) . " linea 74 <br />");
-// print_r( "$registro[2] ". " linea 75 <br />");
-// print_r( "$registro[2] ". " linea 75 <br />");
+    // print_r( "$registro[2] ". " linea 75 <br />");
+    // print_r( "$registro[2] ". " linea 75 <br />");
     echo "<br />";
     print "<pre>";
     // ===FIN COMPROBACIONES===
-//[fetch(PDO::FETCH_ASSOC)DEVULVE UN ARRAY CON EL RESULTADO DE LA COSULTA SQL($query_sql)]";
-    while ($registro = $obj_pdo_stmt->fetch(PDO::FETCH_ASSOC)) {
+
+ 
+    /* `fetch(PDO::FETCH_ASSOC)` es un método utilizado para
+    recuperar una sola fila del conjunto de resultados devuelto
+    por la consulta. En este caso, se busca una fila como una
+    matriz asociativa, donde los nombres de las columnas se
+    utilizan como claves. Esto le permite acceder a los valores de
+    cada columna utilizando el nombre de la columna como clave. */
+    while ($registro = $obj_pdo_stmt->fetch(PDO::FETCH_ASSOC)
+    ) {
         // while ($registro = $obj_pdo_stmt->fetch(PDO::FETCH_BOTH)) {
-// Recorriendo fila a fila el Record Set con [fetch(PDO::FETCH_ASSOC)]
+        // Recorriendo fila a fila el Record Set con [fetch(PDO::FETCH_ASSOC)]
         echo "======= Consulta Exitosa =======";
         echo "<table width='70%' align='center' border='1'>";
         echo "<td  align='center' >$registro[CODIGOARTICULO]</td> ";
         echo "<td  align='center' >$registro[NOMBREARTICULO]</td> ";
         echo "<td  align='center' >$registro[PRECIO]</td> ";
         echo "<td  align='center'>$registro[PAISDEORIGEN]  </td></tr></table>";
-    }
-    ;
+    };
     // $obj_pdo_stmt->closeCursor();
 } catch (Exception $e) {
     echo "ERROR: el codigo de execpción es: " . $e->getMessage() . "<br />";
     echo "EL archivo es: " . $e->getFile() . "<br />";
     exit("En la linea: " . $e->getLine()) . "<br />";
 } finally {
-   /**
-    * La función se desconecta de una conexión de base de datos PDO y cierra cualquier instrucción
-    * abierta.
-    */
+    /**
+     * La función se desconecta de una conexión de base de datos PDO y cierra cualquier instrucción
+     * abierta.
+     */
     function disconnect()
     {
         global $conexion_pdo, $obj_pdo_stmt;
@@ -122,5 +128,4 @@ try
         echo " Consultas y conexciones cerradas";
     }
     disconnect();
-}
-;
+};
