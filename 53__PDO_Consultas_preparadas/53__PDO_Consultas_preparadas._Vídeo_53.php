@@ -97,11 +97,11 @@ try {
     matriz asociativa, donde los nombres de las columnas se
     utilizan como claves. Esto le permite acceder a los valores de
     cada columna utilizando el nombre de la columna como clave. */
+    echo "======= Consulta Exitosa =======";
     while ($registro = $obj_pdo_stmt->fetch(PDO::FETCH_ASSOC)
     ) {
         // while ($registro = $obj_pdo_stmt->fetch(PDO::FETCH_BOTH)) {
         // Recorriendo fila a fila el Record Set con [fetch(PDO::FETCH_ASSOC)]
-        echo "======= Consulta Exitosa =======";
         echo "<table width='70%' align='center' border='1'>";
         echo "<td  align='center' >$registro[CODIGOARTICULO]</td> ";
         echo "<td  align='center' >$registro[NOMBREARTICULO]</td> ";
