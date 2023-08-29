@@ -4,11 +4,12 @@
 class Conectar
 {
 
+   // todo  1. CREAR CONEXÍON
    public static function conexion()
    {
       try {
          /* El código almacena los detalles de conexión para una base de datos MySQL. */
-         $dns = 'mysql:dbname=productos;host=127.0.0.1';
+         $dns = 'mysql:dbname=pruebas;host=127.0.0.1';
          $usuario = 'root';
          $password = '';
          /* La línea ` = new PDO($dns,$usuario,$password);` está creando una nueva instancia de
@@ -17,7 +18,7 @@ class Conectar
    usuario de la base de datos y  la contraseña de la base de datos. Esta línea
    establece una conexión a la base de datos MySQL utilizando las credenciales proporcionadas. */
          $conexion_pdo = new PDO($dns, $usuario, $password);
-        // echo " 20 Conexion establecida con BASE DE DATOS (77_conexionCRUD.php) " . "<br>";
+         echo " 21 Conexion establecida con BASE DE DATOS " . "<br>";
 
          /* La línea `->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);` establece el
    modo de error para la conexión PDO. */
@@ -36,6 +37,8 @@ class Conectar
          echo "_ EL codigo del ERROR es: " . $e->getCode() . "<br />";
          echo '_ERROR: ==>  en la linea : ' . $e->getLine() . "<br />";
       }
+      
       return $conexion_pdo;
    }
+   
 }

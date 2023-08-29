@@ -22,7 +22,7 @@
    `78-82_Producto_controlador.php` del directorio `controlador`. Esto permite que se ejecute el
    código de ese archivo y que cualquier función o variable definida en ese archivo se utilice en el
    script actual. */
-   require_once("controlador/78-80_Producto_controlador.php")
+   require_once("controlador/81-82_Persona_controlador.php")
 
    ?>
 </body>
