@@ -44,15 +44,16 @@ class Personas_modelo
 
 
       /*
-      `fetch(PDO::FETCH_ASSOC)` es un método utilizado para
-      recuperar una fila de un conjunto de resultados devuelto por
-      una consulta de base de datos. En este caso, se utiliza para
-      recuperar cada fila de datos del conjunto de resultados
-      devuelto por la consulta SQL `SELECT * FROM datos_usuarios`.
-      El código ` while ( = ->fetch(PDO::FETCH_ASSOC))` está recuperando cada
-     fila de datos del conjunto de resultados devuelto por la consulta SQL. 
+      `fetch(PDO::FETCH_ASSOC) Y fetch(PDO::FETCH_OBJ) `son métodos utilizados pararecuperar una fila
+       de un conjunto de resultados devuelto poruna consulta de base de datos. En este caso, 
+       se utiliza pararecuperar cada fila de datos del conjunto de resultadosdevuelto
+       por la consulta SQL `SELECT * FROM datos_usuarios`. El código ` while ( = ->fetch(PDO::FETCH_ASSOC))`
+       está recuperando cadafila de datos del conjunto de resultados devuelto por la consulta SQL.
+       El bloque de código que proporcionó es un bucle while que recupera cada fila
+       de datos del conjuntode resultados devuelto por la consulta SQL `->fetch(PDO::FETCH_OBJ)`
       */
-      while ($registros = $consultaSql->fetch(PDO::FETCH_ASSOC)) {
+      while ($registros = $consultaSql->fetch(PDO::FETCH_OBJ)) {
+         // while ($registros = $consultaSql->fetch(PDO::FETCH_ASSOC)) {
          $this->personas[] = $registros;
 
          // // ===COMPROBACIONES===

@@ -18,7 +18,7 @@ class Conectar
    usuario de la base de datos y  la contraseña de la base de datos. Esta línea
    establece una conexión a la base de datos MySQL utilizando las credenciales proporcionadas. */
          $conexion_pdo = new PDO($dns, $usuario, $password);
-         echo " 21 Conexion establecida con BASE DE DATOS " . "<br>";
+         echo " Conexion establecida con BASE DE DATOS (modelo/81-82_conectar.php) " . "<br>";
 
          /* La línea `->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);` establece el
    modo de error para la conexión PDO. */
