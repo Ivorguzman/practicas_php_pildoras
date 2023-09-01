@@ -113,6 +113,7 @@
         <td class="primera_fila">Nombre</td>
         <td class="primera_fila">Apellido</td>
         <td class="primera_fila">Dirección</td>
+        <td class="primera_fila">Sleccione</td>
         <td class="sin">&nbsp;</td>
         <td class="sin">&nbsp;</td>
         <td class="sin">&nbsp;</td>

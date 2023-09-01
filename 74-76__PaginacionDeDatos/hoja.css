@@ -29,15 +29,11 @@ table .bot{
 	display:inline;
 	border:0;
 }
-table .paginacion{
-	text-align:center;
-}
 
 table .primera_fila{
 	font-size:1.5em;
 	text-decoration:underline;
 	background-color:rgb(12, 86, 49);
-	color:aliceblue;
 }
 
 .centrado{

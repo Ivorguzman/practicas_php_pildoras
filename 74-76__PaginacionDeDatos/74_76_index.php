@@ -4,7 +4,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" type="text/css" href="hoja.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
       "74-76_conexion.php". */
       include("74-76_conexion.php");
 
-  
+
       /* Este código verifica si el parámetro "página" está configurado en la URL. Si está configurado, 
         comprueba si el valor del parámetro "pagina" es igual a 1. Si es igual a 1, 
         redirige al usuario a   la página "74_76_index.php". Si el valor del parámetro "pagina"
