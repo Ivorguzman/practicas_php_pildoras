@@ -1,11 +1,15 @@
+
 <?php
 
 //! CONECTAR CON BASE DE DATOS
 class Conectar
+
+
 {
 
-   // todo  1. CREAR CONEXÍON
+   //todo  1. CREAR CONEXÍON
    public static function conexion()
+
    {
       try {
          /* El código almacena los detalles de conexión para una base de datos MySQL. */
@@ -30,6 +34,9 @@ class Conectar
    una codificación de caracteres ampliamente utilizada que admite una amplia gama de caracteres de
    varios idiomas. */
          $conexion_pdo->exec("SET CHARACTER SET utf8");
+         //todo INICIO ********************************************
+         $conexion_pdo->prepare("SELECT * FROM datos_usuarios");
+         // todo FIN ********************************************
       } catch (Throwable $e) {
 
          echo "_ ALEX, ERROR: el codigo de execpción es: " . $e->getMessage() . "<br />";
@@ -37,8 +44,10 @@ class Conectar
          echo "_ EL codigo del ERROR es: " . $e->getCode() . "<br />";
          echo '_ERROR: ==>  en la linea : ' . $e->getLine() . "<br />";
       }
-      
+
+      /* La línea `return ;` devuelve el objeto PDO `` al código de llamada.
+     Esto permite que el código de llamada utilice la conexión de base de datos establecida para
+     ejecutar consultas e interactuar con la base de datos. */
       return $conexion_pdo;
    }
-   
 }

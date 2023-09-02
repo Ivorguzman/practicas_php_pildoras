@@ -11,7 +11,7 @@
 
   <?php
   include("77__conexionCRUD.php");
-
+  //todo **************** INICIO Paginacion ***************
   $pagina = 1; // Mostrar pagia donde estamos al cargar por primera vez la Pagia web
   $tamhnoPagina = 4; //  registros  por Pagina
 
@@ -38,7 +38,7 @@
   $totalPaginas = ceil($numeroFila / $tamhnoPagina);
   //! ___________________________________ calculando el número total de Registros ________________________________
 
-
+  //todo **************** FIN Paginacion ***************
   // ===COMPROBACIONES PAGINACIÖN===
   // print "<pre>\n";
   // echo "<br />";
@@ -141,13 +141,18 @@
         <td><input type='submit' name='insertar' id='insertar' value='Insertar Datos'></td>
       </tr>
       <tr>
+        //todo **************** INICIO bucle for de Paginacion ***************
         <td colspan="3" class='paginacion'>
+
+
           <?php
           for ($i = 1; $i <= $totalPaginas; $i++) {
             echo "<a href='?pagina=" . $i . "'>|$i|</a>  ";
           }
           ?>
+
         </td>
+        //todo ****** FIN bucle for de Paginacion ***************
       </tr>
     </table>
 

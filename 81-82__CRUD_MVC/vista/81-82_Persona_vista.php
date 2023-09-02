@@ -10,6 +10,9 @@
 </head>
 
 <body>
+  <?php
+  require_once("modelo/81-82_Paginacion_modelo.php");
+  ?>
 
   <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
     <table width="50%" border="2" align="center">
@@ -36,7 +39,7 @@
      `registro` en las filas de la tabla del código HTML.
      Una sintaxis alternativa para algunas de sus estructuras de control, a saber: if, while, for, foreach, y switch. En cada caso, la forma básica de la sintaxis alternativa es cambiar la llave de apertura por dos puntos (:) y la llave de cierre por endif;, endwhile;, endfor;, endforeach;, o endswitch;, respectivamente. -->
 
-       <!-- https://www.php.net/manual/es/control-structures.alternative-syntax.php -->
+      <!-- https://www.php.net/manual/es/control-structures.alternative-syntax.php -->
 
 
 
@@ -63,6 +66,20 @@
         <td><input type='text' name='apellido' size='10' class='centrado'></td>
         <td><input type='text' name=' direccion' size='10' class='centrado'></td>
         <td><input type='submit' name='insertar' id='insertar' value='Insertar Datos'></td>
+
+
+        //todo **************** INICIO bucle for de Paginacion ***************
+        <td colspan="3" class='paginacion'>
+
+          <?php
+          for ($i = 1; $i <= $totalPaginas; $i++) {
+            echo "<a href='?pagina=" . $i . "'>|$i|</a>  ";
+          }
+          ?>
+
+        </td>
+        //todo ****** FIN bucle for de Paginacion ***************
+
       </tr>
     </table>
   </form>

@@ -1,13 +1,21 @@
 <?php
+
+
+
+
+
+
 // ? Llamada al modelo DATA ALISIS (BACKEND DE LA APLICACION)
+//****************** DEMANDA LOS DATOS A LA CAPA (archivo) MODELO ************************
 // ! (../) -> Raiz del proyecto
 /* La línea `require_once("modelo/81-82_Persona_modelo.php");` incluye el archivo
 "81-82_Persona_modelo.php" del directorio "modelo". Es probable que este archivo sea el archivo
 modelo responsable de manejar datos relacionados con personas en la aplicación. Al incluir este
 archivo, el código puede acceder a la clase y los métodos definidos en el archivo modelo para
 interactuar con la fuente de datos y recuperar personas. */
-//****************** DEMANDA LOS DATOS A LA CAPA (archivo) MODELO ************************
 require_once("modelo/81-82_Persona_modelo.php");
+
+
 
 
 
@@ -35,6 +43,7 @@ print_r($matrizPersonas);
 
 
 
+
 // ?  Llamada a  la vista (FRONTEND DE LA APLICACIÓN)
 // ! (../) -> Raiz del proyecto
 /* La línea `require_once("vista/81-82_Persona_vista.php");` incluye el archivo
@@ -43,3 +52,6 @@ vista responsable de mostrar los datos recuperados del modelo. Al incluir este a
 puede acceder al código HTML y PHP en el archivo de vista y mostrárselo al usuario. */
 // ****************** DEMANDA LOS DATOS A LA CAPA (archivo)  VISTA ************************
 require_once("vista/81-82_Persona_vista.php");
+
+
+
