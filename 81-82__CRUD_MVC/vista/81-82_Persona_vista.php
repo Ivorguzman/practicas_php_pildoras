@@ -44,16 +44,16 @@
 
       <?php foreach ($matrizPersonas as $item) : ?>
         <!-- INICIO ca   mpos dinamicos para presentar contenido de la base de datos -->
-        <td align="center" ><?php echo $item->id ?></td> <!--id -->
+        <td align="center"><?php echo $item->id ?></td> <!--id -->
         <td><?php echo $item->Nombre ?></td> <!--Nombre -->
         <td><?php echo $item->Apellido ?></td> <!--Apellido -->
         <td><?php echo $item->Direccion ?></td> <!--Direccion-->
         <!-- FIN campos dinamicos para presentar contenido de la base de datos -->
 
         <!-- INICIO campos dinamicos para presentar contenido de la base de datos y botones borrar y actualizar -->
-        <td class='bot'><a href="70__borrar.php?id=<?php echo $item->id ?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
+        <td class='bot'><a href="modelo/81-82_borrar.php?id=<?php echo $item->id ?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
 
-        <td class='bot'><a href="70_editar.php?id=<?php echo $item->id ?>&nombre=<?php echo $item->Nombre ?>&apellido=<?php echo $item->Apellido ?>&direccion=<?php echo $item->Direccion ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
+        <td class='bot'><a href="81-82_editar.php?id=<?php echo $item->id ?>&nombre=<?php echo $item->Nombre ?>&apellido=<?php echo $item->Apellido ?>&direccion=<?php echo $item->Direccion ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
         <!-- FIn campos dinamicos para presentar contenido de la base de datos y botones borrar y actualizar -->
         </tr>
       <?php endforeach ?>
@@ -69,7 +69,7 @@
       <tr>
         <!-- INICIO numeros de la paginacion-->
         <td colspan="5" class='paginacion'>
-        <label>Página:  </label>
+          <label>Página: </label>
           <?php
           for ($i = 1; $i <= $totalPaginas; $i++) {
             echo "<a href='?pagina=" . $i . "'>|$i|</a>  ";
