@@ -15,18 +15,18 @@
   ?>
 
   <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-    <table width="50%" border="2" align="center">
+    <table cellpadding="5" width="50%" border="3" align="center">
       <tr>
         <div>
           <h1 class="titulo">CRUD<span class="subtitulo"> Create | Read | Update | Delete</span></h1>
         </div>
       </tr>
       <tr>
-        <td class="primera_fila">Id</td>
-        <td class="primera_fila">Nombre</td>
-        <td class="primera_fila">Apellido</td>
-        <td class="primera_fila">Dirección</td>
-        <td class="primera_fila">Sleccione</td>
+        <th class="primera_fila">Id</th>
+        <th class="primera_fila">Nombre</th>
+        <th class="primera_fila">Apellido</th>
+        <th class="primera_fila">Dirección</th>
+        <th class="primera_fila">Sleccione</th>
         <td class="sin">&nbsp;</td>
         <td class="sin">&nbsp;</td>
         <td class="sin">&nbsp;</td>
@@ -42,43 +42,42 @@
       <!-- https://www.php.net/manual/es/control-structures.alternative-syntax.php -->
 
 
-
       <?php foreach ($matrizPersonas as $item) : ?>
-
-        <td><?php echo $item->id ?></td> <!--id -->
+        <!-- INICIO ca   mpos dinamicos para presentar contenido de la base de datos -->
+        <td align="center" ><?php echo $item->id ?></td> <!--id -->
         <td><?php echo $item->Nombre ?></td> <!--Nombre -->
         <td><?php echo $item->Apellido ?></td> <!--Apellido -->
         <td><?php echo $item->Direccion ?></td> <!--Direccion-->
+        <!-- FIN campos dinamicos para presentar contenido de la base de datos -->
 
+        <!-- INICIO campos dinamicos para presentar contenido de la base de datos y botones borrar y actualizar -->
         <td class='bot'><a href="70__borrar.php?id=<?php echo $item->id ?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
 
-
         <td class='bot'><a href="70_editar.php?id=<?php echo $item->id ?>&nombre=<?php echo $item->Nombre ?>&apellido=<?php echo $item->Apellido ?>&direccion=<?php echo $item->Direccion ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
-
-
-
+        <!-- FIn campos dinamicos para presentar contenido de la base de datos y botones borrar y actualizar -->
         </tr>
       <?php endforeach ?>
 
       <tr>
-        <td></td>
+        <td align="right">Descripción:</td>
+        <!-- INICIO Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
         <td><input type='text' name='nombre' size='10' class='centrado'></td>
         <td><input type='text' name='apellido' size='10' class='centrado'></td>
         <td><input type='text' name=' direccion' size='10' class='centrado'></td>
-        <td><input type='submit' name='insertar' id='insertar' value='Insertar Datos'></td>
-
-
-        //todo **************** INICIO bucle for de Paginacion ***************
-        <td colspan="3" class='paginacion'>
-
+        <td width="150" align="center"><input type='submit' name='insertar' id='insertar' value='Insertar Datos'></td>
+        <!-- INICIO Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
+      <tr>
+        <!-- INICIO numeros de la paginacion-->
+        <td colspan="5" class='paginacion'>
+        <label>Página:  </label>
           <?php
           for ($i = 1; $i <= $totalPaginas; $i++) {
             echo "<a href='?pagina=" . $i . "'>|$i|</a>  ";
           }
           ?>
-
         </td>
-        //todo ****** FIN bucle for de Paginacion ***************
+        <!--  FIN numeros de la paginacion-->
+      </tr>
 
       </tr>
     </table>

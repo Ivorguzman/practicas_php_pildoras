@@ -15,8 +15,9 @@ body{
 }
 
 table td{
-	text-align:center;
+	/* text-align:center; */
 	border:1px #000099 dotted;
+	
 
 }
 
