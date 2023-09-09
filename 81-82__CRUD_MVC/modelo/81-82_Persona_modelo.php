@@ -42,12 +42,10 @@ class Personas_modelo
    public function getPersonas()
    {
 
+      require_once("modelo/81-82_Paginacion_modelo.php");
 
-
-      /* La línea ` = ->db->query("SELECT * FROM datos_usuarios");` está ejecutando una
-     consulta SQL para seleccionar todas las columnas (`*`) de la tabla `datos_usuarios` en la base
-     de datos. El resultado de esta consulta se almacena en la variable ``. */
-      $consultaSql = $this->db->query("SELECT * FROM datos_usuarios");
+      /* La línea ` = ->db->query("SELECT * FROM datos_usuarios");` está ejecutando una   consulta SQL para seleccionar todas las columnas (`*`) de la tabla `datos_usuarios` en la base  de datos. El resultado de esta consulta se almacena en la variable ``. */
+      $consultaSql = $this->db->query("SELECT * FROM datos_usuarios ");
 
 
       /*
@@ -59,8 +57,12 @@ class Personas_modelo
        El bloque de código que proporcionó es un bucle while que recupera cada fila
        de datos del conjuntode resultados devuelto por la consulta SQL `->fetch(PDO::FETCH_OBJ)`
       */
-      while ($registros = $consultaSql->fetch(PDO::FETCH_OBJ)) {
-         // while ($registros = $consultaSql->fetch(PDO::FETCH_ASSOC)) {
+
+      // todo **** Version fetch(PDO::FETCH_OBJ)) *****************
+     // while ($registros = $consultaSql->fetch(PDO::FETCH_OBJ)) {
+
+      // todo **** Version fetch(PDO::FETCH_ASSOC) *****************
+      while ($registros = $consultaSql->fetch(PDO::FETCH_ASSOC)) {
          $this->personas[] = $registros;
 
          // // ===COMPROBACIONES===

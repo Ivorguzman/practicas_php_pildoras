@@ -61,11 +61,11 @@
       }
 
       $pagina = 1; // Mostrar pagia donde estamos al cargar por primera vez la Pagia web
-      $tamhnoPagina = 3; // Cuato registros ver por Pagina
+      $matrizPersonas = 3; // Cuato registros ver por Pagina
 
       /* La línea ` =(-1) * ;` está calculando el índice de inicio para
      los registros que se mostrarán en la página actual. */
-      $empezarDesDe = ($pagina - 1) * $tamhnoPagina;
+      $empezarDesDe = ($pagina - 1) * $matrizPersonas;
 
 
       $sql = ("SELECT  * FROM  productos ");
@@ -91,7 +91,7 @@
 
       /* La línea de código Siguiente  `  = ceil(....  );` está calculando el número total de Registros en el resultado  
       de la consulta y la Funcion celi() redondea el resulta Obtenido, retornando un numero entero. */
-      $totalPaginas = ceil($numeroFila / $tamhnoPagina);
+      $totalPaginas = ceil($numeroFila / $matrizPersonas);
 
 
       // ===COMPROBACIONES===
@@ -101,10 +101,10 @@
       //echo '46__ $registro == ';
       // print_r("$registro == $.conexion_pdo->query("SELECT * FROM productos")->fetchAll(PDO::FETCH_OBJ));
       print_r("Numero de filas (Registros) en la consulta = " . $numeroFila . "<br>");
-      print_r("Numero paginas = " . $tamhnoPagina . "<br>");
+      print_r("Numero paginas = " . $matrizPersonas . "<br>");
       print_r("Pagina  "  .  $pagina . " de" . " $totalPaginas" . "<br>");
       print_r("Empezar Desde = " . $empezarDesDe);
-      print_r(" Hasta = " . $tamhnoPagina . "<br>");
+      print_r(" Hasta = " . $matrizPersonas . "<br>");
       print "<pre>";
       // ===FIN COMPROBACIONES
 
@@ -112,7 +112,7 @@
        para seleccionar un número limitado de filas de la tabla   "productos". La cláusula `LIMIT` 
        se utiliza para limitar el número de filas devueltas por la   consulta. */
       // $sqlLimit = ("SELECT  * FROM  productos");
-      $sqlLimit = ("SELECT  * FROM  productos LIMIT  $empezarDesDe, $tamhnoPagina");
+      $sqlLimit = ("SELECT  * FROM  productos LIMIT  $empezarDesDe, $matrizPersonas");
 
       /* Se está asignando el resultado de la ejecución de la sentencia
       preparada . La sentencia preparada se ejecuta utilizando el método

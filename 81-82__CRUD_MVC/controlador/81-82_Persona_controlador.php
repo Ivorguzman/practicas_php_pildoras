@@ -1,20 +1,13 @@
 <?php
 
-
-
-
-
-
 // ? Llamada al modelo DATA ALISIS (BACKEND DE LA APLICACION)
 //****************** DEMANDA LOS DATOS A LA CAPA (archivo) MODELO ************************
-// ! (../) -> Raiz del proyecto
 /* La línea `require_once("modelo/81-82_Persona_modelo.php");` incluye el archivo
 "81-82_Persona_modelo.php" del directorio "modelo". Es probable que este archivo sea el archivo
-modelo responsable de manejar datos relacionados con personas en la aplicación. Al incluir este
-archivo, el código puede acceder a la clase y los métodos definidos en el archivo modelo para
-interactuar con la fuente de datos y recuperar personas. */
+modelo responsable de obtener los datos de la fuente de datos. Al incluir este archivo, el código
+puede acceder a los métodos y propiedades definidos en la clase de modelo y recuperar la lista de
+personas de la fuente de datos. */
 require_once("modelo/81-82_Persona_modelo.php");
-
 
 
 
@@ -33,15 +26,13 @@ visualización en la vista. */
 $matrizPersonas = $personas->getPersonas();
 
 
-/* 
-// ===COMPROBACIONES===
-print "<pre>\n";
-echo "<br />";
-print_r($matrizPersonas);
-// ===FIN COMPROBACIONES
- */
 
-
+// //===COMPROBACIONES===
+// print "<pre>\n";
+// echo "<br />";
+// print_r($matrizPersonas);
+// //===FIN COMPROBACIONES
+ 
 
 
 // ?  Llamada a  la vista (FRONTEND DE LA APLICACIÓN)
@@ -51,7 +42,26 @@ print_r($matrizPersonas);
 vista responsable de mostrar los datos recuperados del modelo. Al incluir este archivo, el código
 puede acceder al código HTML y PHP en el archivo de vista y mostrárselo al usuario. */
 // ****************** DEMANDA LOS DATOS A LA CAPA (archivo)  VISTA ************************
-require_once("vista/81-82_Persona_vista.php");
+
+// todo ***************** Version fetch(PDO FETCH_ASSOC) *************************
+/* La línea `require_once("vista/81-82_Persona_vista(fetch(PDO FETCH_ASSOC).php");` incluye el archivo
+"81-82_Persona_vista(fetch(PDO FETCH_ASSOC).php" del directorio "vista". Este archivo es
+Probablemente el archivo de vista responsable de mostrar los datos recuperados del modelo. Al
+incluir este archivo, el código puede acceder al código HTML y PHP en el archivo de vista y
+mostrárselo al usuario. */
+require_once("vista/81-82_Persona_vista(fetch(PDO FETCH_ASSOC).php");
+
+
+
+
+
+// todo ***************** Version fetch(PDO FETCH_OBJ) *************************
+/* La línea `require_once("vista/81-82_Persona_vista(fetch(PDO FETCH_OBJ).php");` incluye el archivo
+"81-82_Persona_vista(fetch(PDO FETCH_OBJ).php" del directorio "vista". Este archivo es Probablemente
+el archivo de vista responsable de mostrar los datos recuperados del modelo. Al incluir este
+archivo, el código puede acceder al código HTML y PHP en el archivo de vista y mostrárselo al
+usuario. */
+//require_once("vista/81-82_Persona_vista(fetch(PDO FETCH_OBJ).php");
 
 
 

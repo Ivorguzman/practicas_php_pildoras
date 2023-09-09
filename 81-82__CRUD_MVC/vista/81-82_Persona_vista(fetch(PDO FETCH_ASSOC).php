@@ -11,18 +11,26 @@
 
 <body>
   <?php
-  require_once("modelo/81-82_Paginacion_modelo.php");
+  require("modelo/81-82_Paginacion_modelo.php");
   ?>
 
   <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-    <table cellpadding="5" width="50%" border="3" align="center">
+    <table class="tablaCentrada" cellpadding="5" width="50%" border="3" align="center">
       <tr>
         <div>
-          <h1 class="titulo">CRUD<span class="subtitulo"> Create | Read | Update | Delete</span></h1>
+
+          <h5>PDO::FETCH_ASSOC</h5>
         </div>
       </tr>
       <tr>
-        <th class="primera_fila">Id</th>
+        <th colspan="8" scope="col">
+          <h1 class="titulo encabezado">CRUD<span class="subtitulo"> Create | Read | Update | Delete</span></h1>
+        </th>
+      </tr>
+
+      <tr class="encabezado">
+
+        <th class=" primera_fila">Id</th>
         <th class="primera_fila">Nombre</th>
         <th class="primera_fila">Apellido</th>
         <th class="primera_fila">Dirección</th>
@@ -30,6 +38,8 @@
         <td class="sin">&nbsp;</td>
         <td class="sin">&nbsp;</td>
         <td class="sin">&nbsp;</td>
+
+
       </tr>
 
       <!-- 
@@ -41,22 +51,23 @@
 
       <!-- https://www.php.net/manual/es/control-structures.alternative-syntax.php -->
 
-
       <?php foreach ($matrizPersonas as $item) : ?>
         <!-- INICIO ca   mpos dinamicos para presentar contenido de la base de datos -->
-        <td align="center"><?php echo $item->id ?></td> <!--id -->
-        <td><?php echo $item->Nombre ?></td> <!--Nombre -->
-        <td><?php echo $item->Apellido ?></td> <!--Apellido -->
-        <td><?php echo $item->Direccion ?></td> <!--Direccion-->
+        <td align="center"><?php echo $item["id"]  ?></td> <!--id -->
+        <td><?php echo $item["Nombre"] ?></td> <!--Nombre -->
+        <td><?php echo $item["Apellido"] ?></td> <!--Apellido -->
+        <td><?php echo $item["Direccion"] ?></td> <!--Direccion-->
         <!-- FIN campos dinamicos para presentar contenido de la base de datos -->
 
         <!-- INICIO campos dinamicos para presentar contenido de la base de datos y botones borrar y actualizar -->
-        <td class='bot'><a href="modelo/81-82_borrar.php?id=<?php echo $item->id ?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
+        <td class='bot'><a href="modelo/81-82_borrar.php?id=<?php echo $item["id"] ?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
 
-        <td class='bot'><a href="81-82_editar.php?id=<?php echo $item->id ?>&nombre=<?php echo $item->Nombre ?>&apellido=<?php echo $item->Apellido ?>&direccion=<?php echo $item->Direccion ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
+        <td class='bot'><a href="81-82_editar.php?id=<?php echo $item["id"] ?>&nombre=<?php echo $item["Nombre"] ?>&apellido=<?php echo $item["Apellido"] ?>&direccion=<?php echo $item["Direccion"] ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
         <!-- FIn campos dinamicos para presentar contenido de la base de datos y botones borrar y actualizar -->
         </tr>
       <?php endforeach ?>
+
+
 
       <tr>
         <td align="right">Descripción:</td>
@@ -70,17 +81,27 @@
         <!-- INICIO numeros de la paginacion-->
         <td colspan="5" class='paginacion'>
           <label>Página: </label>
+
           <?php
+
           for ($i = 1; $i <= $totalPaginas; $i++) {
             echo "<a href='?pagina=" . $i . "'>|$i|</a>  ";
           }
           ?>
+        <td>
+
+        </td>
         </td>
         <!--  FIN numeros de la paginacion-->
+      </tr>
+      <tr>
+
+        echo"Registro N°".$nume
       </tr>
 
       </tr>
     </table>
+
   </form>
 </body>
 

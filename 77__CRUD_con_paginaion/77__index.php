@@ -13,7 +13,7 @@
   include("77__conexionCRUD.php");
   //todo **************** INICIO Paginacion ***************
   $pagina = 1; // Mostrar pagia donde estamos al cargar por primera vez la Pagia web
-  $tamhnoPagina = 4; //  registros  por Pagina
+  $matrizPersonas = 4; //  registros  por Pagina
 
   if (isset($_GET["pagina"])) {
 
@@ -25,7 +25,7 @@
   } else {
     $pagina = 1;
   }
-  $empezarDesDe = ($pagina - 1) * $tamhnoPagina;
+  $empezarDesDe = ($pagina - 1) * $matrizPersonas;
 
   $sql = ("SELECT  * FROM  datos_usuarios ");
 
@@ -35,7 +35,7 @@
   $numeroFila = $registro->rowCount();
 
   //! ___________________________________ calculando el número total de Registros ________________________________
-  $totalPaginas = ceil($numeroFila / $tamhnoPagina);
+  $totalPaginas = ceil($numeroFila / $matrizPersonas);
   //! ___________________________________ calculando el número total de Registros ________________________________
 
   //todo **************** FIN Paginacion ***************
@@ -44,16 +44,16 @@
   // echo "<br />";
   // echo "<br />";
   // print_r("Numero de filas (Registros) en la consulta = " . $numeroFila . "<br>");
-  // print_r("Numero paginas = " . $tamhnoPagina . "<br>");
+  // print_r("Numero paginas = " . $matrizPersonas . "<br>");
   // print_r("Pagina  "  .  $pagina . " de" . " $totalPaginas" . "<br>");
   // print_r("Empezar Desde = " . $empezarDesDe);
-  // print_r(" Hasta = " . $tamhnoPagina . "<br>");
+  // print_r(" Hasta = " . $matrizPersonas . "<br>");
   // echo "<br />";
   // echo "<br />";
   // ===FIN COMPROBACIONES PAGINACIÖN===
 
   //===COMPROBACIONES query(.sql.)===
-  // $sqlLimit= "SELECT  * FROM  datos_usuarios LIMIT  $empezarDesDe, $tamhnoPagina";
+  // $sqlLimit= "SELECT  * FROM  datos_usuarios LIMIT  $empezarDesDe, $matrizPersonas";
   // $registro_PRUEBA = $conexion_pdo->query($sqlLimit)->fetchAll(PDO::FETCH_OBJ);
   // print "<pre>";
   // print "<pre>\n";
@@ -71,7 +71,7 @@
   // ===FIN COMPROBACIONES===
 
 
-  $registro = $conexion_pdo->query("SELECT * FROM datos_usuarios LIMIT  $empezarDesDe, $tamhnoPagina")->fetchAll(PDO::FETCH_OBJ);
+  $registro = $conexion_pdo->query("SELECT * FROM datos_usuarios LIMIT  $empezarDesDe, $matrizPersonas")->fetchAll(PDO::FETCH_OBJ);
   if (isset($_POST["insertar"])) {
 
     $nombre = $_POST["nombre"];
