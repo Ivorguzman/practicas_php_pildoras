@@ -1,8 +1,9 @@
 <?php
+require_once("modelo/81-82_Conectar_modelo.php");
+
+
+
 //! EXTRAER INFORMAVIÓN DE TABLA DE PRODUCTOS DE LA BASE DE DATOS PRUEBAS
-
-
-
 class Personas_modelo
 {
    //? almacena la conexion
@@ -24,8 +25,6 @@ class Personas_modelo
    public function __construct()
    {
 
-      require_once("modelo/81-82_Conectar_modelo.php");
-
       $this->db = Conectar::conexion();
       $this->personas = array();
    }
@@ -45,7 +44,7 @@ class Personas_modelo
       require_once("modelo/81-82_Paginacion_modelo.php");
 
       /* La línea ` = ->db->query("SELECT * FROM datos_usuarios");` está ejecutando una   consulta SQL para seleccionar todas las columnas (`*`) de la tabla `datos_usuarios` en la base  de datos. El resultado de esta consulta se almacena en la variable ``. */
-      $consultaSql = $this->db->query("SELECT * FROM datos_usuarios ");
+      $consultaSql = $this->db->query("SELECT * FROM datos_usuarios LIMIT $empezarDesDe,$registrosPorPagina ");
 
 
       /*

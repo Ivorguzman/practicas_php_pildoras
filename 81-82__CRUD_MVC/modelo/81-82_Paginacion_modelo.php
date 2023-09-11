@@ -1,6 +1,4 @@
 <?php
-
-
 require_once("81-82_Conectar_modelo.php");
 $conexion_pdo = Conectar::conexion();
 
@@ -51,7 +49,7 @@ $numeroFila = $resultSetRegistro->rowCount();
 
 /* La variable `$totalPaginas` está calculando el número total de páginas necesarias para lapaginación. Se calcula dividiendo el número total de filas en la tabla de la base de datos por el
 número de filas que se mostrarán por página (""). La función `ceil($numeroFila / $registrosPorPagina)` se utiliza para redondear el resultado al número entero más cercano. */
-$totalPaginas = ceil($numeroFila / $registrosPorPagina);
+$totalRegistrosPaginas = ceil($numeroFila / $registrosPorPagina);
   //! ___________________________________ calculando el número total de Registros ________________________________
 
   //todo **************** FIN Paginacion ***************
