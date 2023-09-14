@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <title>Documento sin título</title>
-   <link rel="stylesheet" type="text/css" href="hoja.css">
+   <link rel="stylesheet" type="text/css" href="hoja.css">>
 
 </head>
 
@@ -13,6 +13,20 @@
    <h1>ACTUALIZAR</h1>
 
    <?php
+   /* La línea `require_once("81-82_Conectar_modelo.php");` incluye el archivo
+   "81-82_Conectar_modelo.php" en el script PHP actual. Es probable que este archivo contenga el
+   código para establecer una conexión de base de datos utilizando PDO (objetos de datos PHP). Al
+   incluir este archivo, el script puede acceder al método `Conectar::conexion()`, que establece la
+   conexión a la base de datos. */
+   require_once("81-82_Conectar_modelo.php");
+
+
+   /* La línea ` = Conectar::conexion();` está llamando al método `conexion()` de la clase
+   `Conectar`. Este método se encarga de establecer una conexión a la base de datos mediante PDO
+   (PHP Data Objects). El valor devuelto luego se asigna a la variable ` $conexion_pdo`, que puede
+   usarse para ejecutar consultas a la base de datos. */
+   $conexion_pdo = Conectar::conexion();
+
 
    /* La línea `if (!isset(["bot_actualizar"]))` comprueba si el formulario se ha enviado o no.
  Comprueba si el campo "bot_actualizar" en la matriz  está configurado o no. Si no está
@@ -42,7 +56,7 @@
   enviado, recupera los valores de los parámetros de la URL () y los asigna a las variables
   (id,nombre,apellido ,direccion ). Si el formulario ha sido enviado, recupera los valores de los
   campos del formulario () y los asigna a las variables (id,nombre,apellido ,direccion ) */
-         require_once("");
+
 
 
 
@@ -50,7 +64,7 @@
       Está actualizando los valores de las columnas "Nombre", "Apellido"  y "Dirección" en función del valor "id" proporcionado. */
          $sql = "UPDATE datos_usuarios SET Nombre = :miNombre, Apellido = :miApellido, Direccion = :miDireccion WHERE id = :miId";
 
-         /* ` = ->prepare()` está preparando una sentencia SQL para su
+         /* ` = ->prepare($sql)` está preparando una sentencia SQL para su
       ejecución. Está creando un objeto de declaración preparada `` a partir del objeto de
       conexión PDO `` y la consulta SQL ``. Esta declaración preparada se puede
       ejecutar con el método `execute()`, pasando los parámetros necesarios. */
@@ -59,7 +73,7 @@
          /* La línea `->execute(array(":myId=", ":myName=", ":myLastName=",
       ":myAddress="));` está ejecutando un declaración con los parámetros proporcionados. */
          $resultado->execute(array(":miId" => $id, ":miNombre" => $nombre,   ":miApellido" => $apellido, ":miDireccion" => $direccion));
-         header("Location:70_73_index.php");
+         header("Location:../81_82_index.php");
       } catch (Throwable $e) {
          /* El bloque `catch (Throwable )` se usa para capturar cualquier excepción o error que pueda
   ocurrir'durante la ejecución del código dentro del bloque `try`. */

@@ -52,20 +52,23 @@
      `registro` en las filas de la tabla del código HTML.
      Una sintaxis alternativa para algunas de sus estructuras de control, a saber: if, while, for, foreach, y switch. En cada caso, la forma básica de la sintaxis alternativa es cambiar la llave de apertura por dos puntos (:) y la llave de cierre por endif;, endwhile;, endfor;, endforeach;, o endswitch;, respectivamente. -->
 
-    <!-- https://www.php.net/manual/es/control-structures.alternative-syntax.php -->
 
-    <?php foreach ($matrizPersonas as $item) : ?>
-      <!-- INICIO ca   mpos dinamicos para presentar contenido de la base de datos -->
+    <!-- https://www.php.net/manual/es/control-structures.alternative-syntax.php -->
+    <!-- INICIO campos dinamicos para presentar contenido de la base de datos -->
+    <?php
+    /* El bucle `foreach` itera sobre cada elemento en la matriz `$matrizPersonas` y asigna el  elemento actual a la variable `$item`. Esto le permite acceder a los valores de cada  elemento de la matriz dentro del bucle. */
+    foreach ($matrizPersonas as $item) : ?>
       <td align="center"><?php echo $item["id"]  ?></td> <!--id -->
       <td><?php echo $item["Nombre"] ?></td> <!--Nombre -->
       <td><?php echo $item["Apellido"] ?></td> <!--Apellido -->
       <td><?php echo $item["Direccion"] ?></td> <!--Direccion-->
       <!-- FIN campos dinamicos para presentar contenido de la base de datos -->
 
+
       <!-- INICIO campos dinamicos para presentar contenido de la base de datos y botones borrar y actualizar -->
       <td class='bot'><a href="modelo/81-82_borrar.php?id=<?php echo $item["id"] ?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
 
-      <td class='bot'><a href="81-82_editar.php?id=<?php echo $item["id"] ?>&nombre=<?php echo $item["Nombre"] ?>&apellido=<?php echo $item["Apellido"] ?>&direccion=<?php echo $item["Direccion"] ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
+      <td class='bot'><a href="modelo/81-82_editar.php?id=<?php echo $item["id"] ?>&nombre=<?php echo $item["Nombre"] ?>&apellido=<?php echo $item["Apellido"] ?>&direccion=<?php echo $item["Direccion"] ?>"><input type='button' name='up' id='up' value='Actualizar'></a></td>
       <!-- FIn campos dinamicos para presentar contenido de la base de datos y botones borrar y actualizar -->
       </tr>
     <?php endforeach ?>
@@ -74,37 +77,34 @@
 
     <tr>
       <td align="right"><b>Descripción:</b></td>
-            <!-- INICIO Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
+      <!-- INICIO Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
       <td><input type='text' name='nombre' size='10' class='centrado'></td>
       <td><input type='text' name='apellido' size='10' class='centrado'></td>
       <td><input type='text' name=' direccion' size='10' class='centrado'></td>
       <td width="150" align="center"><input type='submit' name='insertar' id='insertar' value='Insertar Datos'></td>
-      <!-- INICIO Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
+      <!-- FIN Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
     <tr>
       <!-- INICIO numeros de la paginacion-->
       <td colspan="5" class='paginacion'>
-        <label>Página: </label>
 
         <?php
-
+        echo "<b> Página:</b> ";
         for ($i = 1; $i <= $totalRegistrosPaginas; $i++) {
           echo "<a href='?pagina=" . $i . "'>|$i|</a>  ";
         }
         ?>
-      <td>
 
-      </td>
+      <td></td>
       </td>
       <!--  FIN numeros de la paginacion-->
     </tr>
     <tr>
+
       <td colspan="5" class='paginacion'>
         <?php
-        echo "<b> Total registros en Base de Datos : " . $numeroFila . " </b><br>";
+        echo "<b> Total registros en Base de Datos : " . $numeroFila_BBDD . " </b><br>";
         echo "<b>Registro por pagina: " . $registrosPorPagina . "</b><br>";
-        echo "<b>Página :  " . $pagina . " / " . $totalRegistrosPaginas . "</b>";
-
-
+        echo "<b>Página :  " . $pagina . " de:  " . $totalRegistrosPaginas . "</b>";
         ?>
       </td>
     </tr>

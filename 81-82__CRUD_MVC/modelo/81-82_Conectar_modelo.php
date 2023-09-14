@@ -34,7 +34,7 @@ class Conectar
    una codificación de caracteres ampliamente utilizada que admite una amplia gama de caracteres de
    varios idiomas. */
          $conexion_pdo->exec("SET CHARACTER SET utf8");
-         //todo INICIO ********************************************
+         //todo INICIO ****** Objeto Stm ****************
          $conexion_pdo->prepare("SELECT * FROM datos_usuarios");
          // todo FIN ********************************************
       } catch (Throwable $e) {
