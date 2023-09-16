@@ -15,7 +15,6 @@
   <?php
   require("modelo/81-82_Paginacion_modelo.php");
   ?>
-</body>
 
 <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
   <table class="tablaCentrada" cellpadding="5" width="50%" border="3" align="center">
@@ -73,18 +72,24 @@
       </tr>
     <?php endforeach ?>
 
-
+    <?php
+    require("modelo/81-81_insertar.php");
+    ?>
 
     <tr>
+
       <td align="right"><b>Descripción:</b></td>
-      <!-- INICIO Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
+      <!-- //todo  INICIO Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
       <td><input type='text' name='nombre' size='10' class='centrado'></td>
       <td><input type='text' name='apellido' size='10' class='centrado'></td>
       <td><input type='text' name=' direccion' size='10' class='centrado'></td>
+
       <td width="150" align="center"><input type='submit' name='insertar' id='insertar' value='Insertar Datos'></td>
-      <!-- FIN Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
+      <!-- //todo FIN Cuadros de texto de insertar Datos en la tabla  y boton de insertar datos-->
+
+
     <tr>
-      <!-- INICIO numeros de la paginacion-->
+      <!--  // INICIO numeros de la paginacion-->
       <td colspan="5" class='paginacion'>
 
         <?php
